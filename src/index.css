@@ -136,4 +136,90 @@ body {
 
 .matrix-bg {
   background: rgba(0, 212, 255, 0.02);
+}
+
+/* Additional animation varieties */
+@keyframes slide-left {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-10px); }
+}
+
+@keyframes slide-right {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(10px); }
+}
+
+@keyframes rotate-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes scale-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes typing-appear {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px) scale(0.95);
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes typing-disappear {
+  0% { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-10px) scale(0.95);
+  }
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+.animate-slide-left {
+  animation: slide-left 3s ease-in-out infinite;
+}
+
+.animate-slide-right {
+  animation: slide-right 2.5s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 8s linear infinite;
+}
+
+.animate-scale-pulse {
+  animation: scale-pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 4s ease-in-out infinite;
+}
+
+.animate-wobble {
+  animation: wobble 3s ease-in-out infinite;
+}
+
+.animate-typing-appear {
+  animation: typing-appear 0.8s ease-out forwards;
+}
+
+.animate-typing-disappear {
+  animation: typing-disappear 0.6s ease-in forwards;
 } 

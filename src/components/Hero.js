@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Network, Code, Terminal, ChevronDown, Eye, Server, Search, AlertTriangle } from 'lucide-react';
+import TypingAnimation from './TypingAnimation';
 
 const Hero = () => {
   const scrollToAbout = () => {
@@ -8,13 +9,12 @@ const Hero = () => {
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated background elements */}
+      {/* Clean background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-20 h-20 border border-cyber-blue/30 rounded-full animate-pulse-slow"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 border border-cyber-green/30 rounded-full animate-bounce-slow"></div>
-        <div className="absolute bottom-40 left-20 w-12 h-12 border border-cyber-purple/30 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-24 h-24 border border-cyber-blue/20 rounded-full animate-pulse-slow"></div>
       </div>
+      
+      {/* Typing command animations */}
+      <TypingAnimation />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <div className="space-y-8">
