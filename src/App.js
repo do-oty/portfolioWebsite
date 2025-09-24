@@ -12,7 +12,7 @@ import './index.css';
 
 function App() {
   return (
-    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolioAss' : ''}>
+    <Router basename={process.env.NODE_ENV === 'production' ? '/portfolioWebsite' : ''}>
       <div className="bg-dark-bg min-h-screen text-white">
         <div className="network-grid min-h-screen">
           <Navbar />
