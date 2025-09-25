@@ -3,6 +3,13 @@ import { GraduationCap, Target, TrendingUp } from 'lucide-react';
 import GitHubContributions from './GitHubContributions';
 
 const About = () => {
+  const chipColorClasses = {
+    'cyber-green': { border: 'border-cyber-green/40', bg: 'bg-cyber-green/10', text: 'text-cyber-green' },
+    'cyber-blue': { border: 'border-cyber-blue/40', bg: 'bg-cyber-blue/10', text: 'text-cyber-blue' },
+    'cyber-purple': { border: 'border-cyber-purple/40', bg: 'bg-cyber-purple/10', text: 'text-cyber-purple' },
+    'orange-400': { border: 'border-orange-400/40', bg: 'bg-orange-400/10', text: 'text-orange-300' },
+    'cyan-400': { border: 'border-cyan-400/40', bg: 'bg-cyan-400/10', text: 'text-cyan-300' },
+  };
   return (
     <section id="about" className="py-16 bg-dark-card/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,9 +112,14 @@ const About = () => {
                   <div key={idx} className="p-3 bg-dark-bg rounded-lg border border-dark-border">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-300">{item.title}</span>
-                      <span className={`text-xs font-medium px-2 py-0.5 rounded border whitespace-nowrap border-${item.color}/40 text-${item.color} bg-${item.color}/10`}>
-                        {item.status}
-                      </span>
+                      {(() => {
+                        const c = chipColorClasses[item.color] || chipColorClasses['cyber-blue'];
+                        return (
+                          <span className={`text-xs font-medium px-2 py-0.5 rounded border whitespace-nowrap ${c.border} ${c.text} ${c.bg}`}>
+                            {item.status}
+                          </span>
+                        );
+                      })()}
                     </div>
                   </div>
                 ))}
@@ -135,7 +147,12 @@ const About = () => {
                   <div key={idx} className="p-4 rounded-lg bg-dark-bg border border-dark-border">
                     <div className="flex items-center justify-between">
                       <h4 className="text-sm font-semibold text-white leading-tight">{step.title}</h4>
-                      <span className={`text-xs px-2 py-0.5 rounded border whitespace-nowrap border-${step.color}/40 text-${step.color} bg-${step.color}/10`}>{step.badge}</span>
+                      {(() => {
+                        const c = chipColorClasses[step.color] || chipColorClasses['cyber-blue'];
+                        return (
+                          <span className={`text-xs px-2 py-0.5 rounded border whitespace-nowrap ${c.border} ${c.text} ${c.bg}`}>{step.badge}</span>
+                        );
+                      })()}
                     </div>
                   </div>
                 ))}
