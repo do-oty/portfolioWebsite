@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 
 const TypingAnimation = () => {
   const [activeCommands, setActiveCommands] = useState([]);
@@ -10,7 +10,7 @@ const TypingAnimation = () => {
   const usedCommandsRef = useRef(new Set());
 
   // Cybersecurity-themed terminal commands
-  const commands = [
+  const commands = useMemo(() => [
     'nmap -sS -O target.local',
     'sudo tail -f /var/log/auth.log',
     'netstat -tulpn | grep LISTEN',
@@ -47,11 +47,11 @@ const TypingAnimation = () => {
     'cat /proc/meminfo | grep Mem',
     'sudo fail2ban-client status',
     'sudo ufw status verbose'
-  ];
+  ], []);
 
 
 
-  const spawnCommand = () => {
+  const spawnCommand = useCallback(() => {
     // Get available commands (not currently active)
     const availableCommands = commands.filter(cmd => !usedCommandsRef.current.has(cmd));
     
@@ -167,7 +167,7 @@ const TypingAnimation = () => {
         }, displayTime);
       }
     }, typingSpeed);
-  };
+  }, [commands]);
 
   useEffect(() => {
     // Spawn commands at intervals
@@ -196,7 +196,7 @@ const TypingAnimation = () => {
     }, 2500); // Spawn every 2.5 seconds - faster for more activity
 
     return () => clearInterval(spawnInterval);
-  }, []); // No dependencies to prevent re-creation
+  }, [spawnCommand]);
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden">

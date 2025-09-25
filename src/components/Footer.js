@@ -79,7 +79,7 @@ const Footer = () => {
                 <button
                   key={index}
                   onClick={() => scrollToSection(link.href)}
-                  className="block text-gray-400 hover:text-cyber-blue transition-colors duration-300 text-sm"
+                  className="block text-gray-400 hover:text-cyber-green hover:shadow-[0_0_8px_rgba(0,255,148,0.2)] px-2 py-1 rounded transition-all duration-300 text-sm"
                 >
                   {link.name}
                 </button>
@@ -114,7 +114,7 @@ const Footer = () => {
               </div>
               <button 
                 onClick={() => scrollToSection('#contact')}
-                className="inline-flex items-center px-4 py-2 bg-gradient-network text-white text-sm font-medium rounded-lg hover:scale-105 transition-all duration-300"
+                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-emerald-600 to-cyan-500 text-white text-sm font-medium rounded-lg hover:scale-105 hover:shadow-[0_0_15px_rgba(6,182,212,0.4)] transition-all duration-300"
               >
                 Contact Me
                 <Mail className="h-4 w-4 ml-2" />
@@ -141,7 +141,7 @@ const Footer = () => {
               </p>
               <button
                 onClick={scrollToTop}
-                className="p-2 bg-dark-bg border border-dark-border rounded-lg text-gray-400 hover:text-cyber-blue hover:border-cyber-blue transition-all duration-300"
+                className="p-2 bg-dark-bg border border-cyber-green/50 rounded-lg text-gray-400 hover:text-cyber-green hover:border-cyber-green hover:bg-cyber-green/10 hover:shadow-[0_0_10px_rgba(0,255,148,0.3)] transition-all duration-300"
                 title="Back to top"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
